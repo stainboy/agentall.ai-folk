@@ -319,7 +319,7 @@ function PieChart() {
     let currentAngle = 0;
 
     return (
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center" style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
             <div className="flex items-center gap-16">
                 {/* Left side: Pie Chart */}
                 <div className="flex-shrink-0">
