@@ -49,6 +49,84 @@ export default function Company() {
                 </div>
             </section>
 
+            {/* About Us Section */}
+            <section className="py-12 lg:py-24">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="text-center space-y-6 lg:space-y-9 mb-12 lg:mb-16">
+                        <div className="group cursor-pointer space-y-9">
+                            <div className="flex justify-center">
+                                <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                            </div>
+                            <h2 className="section-title text-foreground">
+                                About Us
+                            </h2>
+                            <div className="flex justify-center">
+                                <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="max-w-4xl mx-auto space-y-6 text-base lg:text-lg text-foreground/80 leading-relaxed">
+                        <p>
+                            We are a Singapore based company founded by SAP Business One veterans who helped shape the product and its ecosystem, we are on a mission to <span className="text-primary font-semibold">revive SAP Business One for the next decade by embedding AI capabilities,</span> leveraging our unique product expertise and ecosystem outreach to <span className="text-primary font-semibold">outcompete in the SMB market.</span>
+                        </p>
+                        <p>
+                            In the long run we seek to empower the SMB customers and partners globally to transform and succeed in the AI era.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Our Vision Section */}
+            <section className="py-12 lg:py-24">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="text-center space-y-6 lg:space-y-9 mb-12 lg:mb-16">
+                        <div className="group cursor-pointer space-y-9">
+                            <div className="flex justify-center">
+                                <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                            </div>
+                            <h2 className="section-title text-foreground">
+                                Our Vision
+                            </h2>
+                            <h3 className="text-xl lg:text-2xl text-primary max-w-4xl mx-auto font-black">
+                                Future proof success of SAP Business One in the AI era
+                            </h3>
+                            <div className="flex justify-center">
+                                <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="max-w-4xl mx-auto space-y-6 text-base lg:text-lg text-foreground/80 leading-relaxed">
+                        <p>
+                            Empowering small and medium-sized businesses with digital workers, transforming enterprise operations into agentic organizations enabled by autonomous human-AI collaboration.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Data Centers Section */}
+            <section className="py-12 lg:py-24 mb-[6rem]">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="text-center space-y-6 lg:space-y-9 mb-12 lg:mb-16">
+                        <div className="group cursor-pointer space-y-9">
+                            <div className="flex justify-center">
+                                <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                            </div>
+                            <h2 className="section-title text-foreground">
+                                Data Centers
+                            </h2>
+                            <div className="flex justify-center">
+                                <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="max-w-4xl mx-auto space-y-6 text-base lg:text-lg text-foreground/80 leading-relaxed">
+                        <p>
+                            Our data centers are currently located in Singapore and Germany, and will be extended into Americas, allowing our global customers to choose their preferred infrastructure location.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <Footer />
         </div>
     );
