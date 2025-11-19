@@ -75,7 +75,7 @@ ${formData.firstName} ${formData.lastName}
         `.trim();
 
         // Create mailto link
-        const mailtoLink = `mailto:info@mtcsys.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        const mailtoLink = `mailto:service@agentall.ai?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
         // Open default email client
         window.location.href = mailtoLink;
