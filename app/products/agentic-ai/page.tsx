@@ -25,248 +25,230 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { getImagePath } from '@/app/utils/images';
 import Image from 'next/image';
+import { useI18n } from '../../i18n/I18nContext';
 
 // Pie Chart Data
-const PIE_CHART_DATA = [
+const getPieChartData = (t: (key: string) => string) => [
     {
         id: 1,
-        label: 'Sales Automation',
+        label: t('agentic.salesAutomation'),
         percentage: 14.29,
         color: '#6b5be1',
         icon: faReceipt,
         bullets: [
-            'Customer Email Monitoring',
-            'Sales Order Creation and Update',
-            'Sales Order Approval'
+            t('agentic.customerEmail'),
+            t('agentic.salesOrderCreate'),
+            t('agentic.salesOrderApproval')
         ]
     },
     {
         id: 2,
-        label: 'Inventory Automation',
+        label: t('agentic.inventoryAutomation'),
         percentage: 14.29,
         color: '#ec4899',
         icon: faWarehouse,
         bullets: [
-            'Goods Issue Planning and Pick Lists Creation',
-            'Creation of Outbound Delivery',
-            'Creation of Goods Receipt',
-            'Goods Receipt Monitoring and Reminding'
+            t('agentic.goodsIssue'),
+            t('agentic.outboundDelivery'),
+            t('agentic.goodsReceipt'),
+            t('agentic.goodsReceiptMonitor')
         ]
     },
     {
         id: 3,
-        label: 'Query & Insights',
+        label: t('agentic.queryInsights'),
         percentage: 14.29,
         color: '#f97316',
         icon: faSearch,
         bullets: [
-            'Nature Language Query of Data and Transactions',
-            'Dynamic Report and Dashboard Creation',
-            'Graphic Visualization Creation',
-            'Data Insights and Recommendations'
+            t('agentic.nlQuery'),
+            t('agentic.dynamicReport'),
+            t('agentic.graphicViz'),
+            t('agentic.dataInsights')
         ]
     },
     {
         id: 4,
-        label: 'Document Processing',
+        label: t('agentic.documentProcessing'),
         percentage: 14.29,
         color: '#8b5cf6',
         icon: faFileLines,
         bullets: [
-            'Unstructured Document (PDF, Image, DOC, XLS etc.) Extraction',
-            'Data Mapping and Validation',
-            'Creation of Business Transactions'
+            t('agentic.documentExtract'),
+            t('agentic.dataMapping'),
+            t('agentic.businessTrans')
         ]
     },
     {
         id: 5,
-        label: 'Knowledge Management',
+        label: t('agentic.knowledgeManagement'),
         percentage: 14.29,
         color: '#10b981',
         icon: faBrain,
         bullets: [
-            'Enterprise Knowledge Management',
-            'Nature Language Query and Retrieval of Knowledge Documents'
+            t('agentic.enterpriseKM'),
+            t('agentic.kbQuery')
         ]
     },
     {
         id: 6,
-        label: 'Finance Automation',
+        label: t('agentic.financeAutomation'),
         percentage: 14.29,
         color: '#06b6d4',
         icon: faFileInvoice,
         bullets: [
-            'E-invoice Integration',
-            'Supplier Invoice Processing',
-            'Customer Invoice Processing',
-            'PO/GR/IN Reconciliation'
+            t('agentic.eInvoice'),
+            t('agentic.supplierInvoice'),
+            t('agentic.customerInvoice'),
+            t('agentic.poGrReconcile')
         ]
     },
     {
         id: 7,
-        label: 'Purchasing Automation',
+        label: t('agentic.purchasingAutomation'),
         percentage: 14.29,
         color: '#f59e0b',
         icon: faHandshake,
         bullets: [
-            'Supplier Email Monitoring',
-            'Purchase Order Creation and Update',
-            'Purchase Requisition Creation and Update',
-            'Supplier Analysis and Recommendation'
+            t('agentic.supplierEmail'),
+            t('agentic.purchaseOrder'),
+            t('agentic.purchaseReq'),
+            t('agentic.supplierAnalysis')
         ]
     }
 ];
 
 // Tabs Data
-const TABS_DATA = [
+const getTabsData = (t: (key: string) => string) => [
     {
         id: 'document-extraction',
-        title: 'Document Extraction',
+        title: t('agentic.tabDocExtract'),
         video: '/videos/1_Process_Automation.mp4',
         layout: 'vertical',
         features: [
-            'Extraction of data in <strong>any Language</strong> from <strong>any document format</strong>: PDF, excel, image, scanned paper etc',
-            '<strong>Automatic mapping</strong> and <strong>document creation</strong> in SAP Business One: sales order, goods receipt, supplier invoice etc',
-            'Able to <strong>handle complex files</strong> even beyond DTW limits',
-            'Able to <strong>flexibly configure mapping rules</strong> and adapt for various document formats'
+            t('agentic.docExtractFeature1'),
+            t('agentic.docExtractFeature2'),
+            t('agentic.docExtractFeature3'),
+            t('agentic.docExtractFeature4')
         ],
         kpis: [
             {
-                label: ['Harmonize User Experience', 'Improve Customer Satisfaction'], value: null
+                label: [t('agentic.harmonizeUX'), t('agentic.improveSatisfaction')], value: null
             },
             {
-                label: '<strong>1 to 2 minutes</strong> for automatic document resolution',
+                label: t('agentic.autoDocResolution'),
                 value: ['1-2', 'Minute'],
                 color: '#6b5be1'
             },
             {
-                label: 'Increase in efficiency by more than <strong>10 times</strong> compared to manual efforts',
+                label: t('agentic.efficiencyGain'),
                 value: ['10x', 'Up'],
                 color: '#6b5be1'
             },
 
         ],
         highlights: [
-            'Auto-parsing improves accuracy and avoids manual errors.',
-            'No training required to process various document format, reducing maintenance costs.',
+            t('agentic.autoParsing'),
+            t('agentic.noTraining'),
         ]
     },
     {
         id: 'process-automation',
-        title: 'Process Automation',
+        title: t('agentic.tabProcess'),
         video: '/videos/2_1_Analytics&Recommendation.mp4',
         layout: 'vertical',
         features: [
-            '<strong>7x24</strong> monitoring of business data and proactively push notification or <strong>trigger actions automatically</strong>',
-            'Automatic <strong>360 deep research</strong> into business data to recommend optimizing plans',
-            '<strong>Role based authorization control</strong> and data access to ensure security',
-            '<strong>Flexible customization</strong> of agents and workflow to adapt for your own needs'
+            t('agentic.processFeature1'),
+            t('agentic.processFeature2'),
+            t('agentic.processFeature3'),
+            t('agentic.processFeature4')
         ],
         kpis: [
             {
-                label: ['Productivity Gain', 'Performance Optimization'], value: null
+                label: [t('agentic.productivityGain'), t('agentic.performanceOpt')], value: null
             },
             {
-                label: 'Manual efforts saved by automatic process triggered by agents',
+                label: t('agentic.manualSaved'),
                 value: ['50%'],
                 color: '#6b5be1'
             },
             {
-                label: 'Overall performance improvement from data driven decisions recommended by agents',
+                label: t('agentic.performanceImprove'),
                 value: ['10%'],
                 color: '#6b5be1'
             },
 
         ],
         highlights: [
-            'Automated business process to release employees from repetitive manual transactions and gain productivity',
-            'Best practice based deep research to optimize business performance like never before',
+            t('agentic.releaseEmployees'),
+            t('agentic.bestPractice'),
         ]
     },
     {
         id: 'nlq',
-        title: 'ChatBI',
+        title: t('agentic.tabChatBI'),
         video: '/videos/2_2_Analytics&Recommendation.mp4',
         layout: 'vertical',
         features: [
-            'AI Agent creates reports with visualization dynamically in <strong>20–35s</strong> vs. <strong>2–4h</strong> manually, freeing implementation resources',
-            '<strong>No SQL/HANA knowledge needed</strong>—business users query data via natural language',
-            'Reasoning and deep research to <strong>provide insights, root cause analysis and recommendation plans</strong> from business data'
+            t('agentic.chatbiFeature1'),
+            t('agentic.chatbiFeature2'),
+            t('agentic.chatbiFeature3')
         ],
         kpis: [
             {
-                label: ['Multiply Effectiveness', 'Time Saving and Cost Reduction'], value: null
+                label: [t('agentic.multiplyEffectiveness'), t('agentic.timeSaving')], value: null
             },
             {
-                label: 'To generate visualized reports dynamically',
+                label: t('agentic.generateReport'),
                 value: ['30', 'Seconds'],
                 color: '#6b5be1'
             },
             {
-                label: 'Increase in efficiency by more than <strong>10 times</strong> compared to manual efforts',
+                label: t('agentic.efficiencyGain'),
                 value: ['10x', 'Up'],
                 color: '#6b5be1'
             },
 
         ],
         highlights: [
-            'Query your business data anywhere anytime for better transparency and control',
-            'Make impact with your business data and let it flow to become growth driver',
+            t('agentic.queryAnywhere'),
+            t('agentic.makeImpact'),
         ]
     },
     {
         id: 'whatsapp',
-        title: 'WhatsApp Integration',
+        title: t('agentic.tabWhatsApp'),
         video: '/videos/5_WhatsApp.mp4',
         features: [
-            'AI agents as contacts allowing nature language interaction',
-            'Process automation and ChatBI functionalities supported',
-            'Identity recognition and role-based access control to ensure security'
+            t('agentic.whatsappFeature1'),
+            t('agentic.whatsappFeature2'),
+            t('agentic.whatsappFeature3')
         ],
         kpis: [
             {
-                label: ['Harmonize User Experience', 'Improve Customer Satisfaction'], value: null
+                label: [t('agentic.harmonizeUX'), t('agentic.improveSatisfaction')], value: null
             },
             {
-                label: '1 to 2 minutes for automatic customer creation from text input',
+                label: t('agentic.customerCreation'),
                 value: ['1-2', 'Minute'],
                 color: '#6b5be1'
             },
             {
-                label: 'To query data and generate visualized reports dynamically on mobile',
+                label: t('agentic.queryMobile'),
                 value: ['30', 'Seconds'],
                 color: '#6b5be1'
             },
 
         ],
         highlights: [
-            'Harmonize user experience on demand to make life easier for business users',
-            'Accelerated response to customer needs and improve customer satisfaction',
+            t('agentic.harmonizeDemand'),
+            t('agentic.accelerateResponse'),
         ]
     },
-    // {
-    //     id: 'ekm',
-    //     title: 'Enterprise Knowledge Management',
-    //     layout: 'vertical',
-    //     features: [
-    //         'Extraction of Data in Any Language from Any Document Format: PDF, excel, image, scanned paper etc',
-    //         'Automatic Mapping and Creation of Structured Document in SAP Business One: sales order, goods receipt, supplier invoice etc',
-    //         'Able to handle complex files even beyond DTW limits',
-    //         'Able to flexibly configure mapping rules and adapt for various document format'
-    //     ],
-    //     kpis: [
-    //         { label: 'Knowledge Reuse', value: '3x', color: '#f97316' },
-    //         { label: 'Learning Time', value: '-60%', color: '#ec4899' }
-    //     ],
-    //     highlights: [
-    //         'Auto-parsing improves accuracy and avoids manual errors.',
-    //         'No training required to process various document format, reducing maintenance costs.',
-    //     ]
-    // }
 ];
 
 // Pie Chart Component
-function PieChart() {
+function PieChart({ pieData, t }: { pieData: ReturnType<typeof getPieChartData>, t: (key: string) => string }) {
     const [hoveredSlice, setHoveredSlice] = useState<number | null>(null);
     const [currentAutoSlice, setCurrentAutoSlice] = useState<number>(1);
 
@@ -274,12 +256,12 @@ function PieChart() {
     React.useEffect(() => {
         if (hoveredSlice === null) {
             const interval = setInterval(() => {
-                setCurrentAutoSlice(prev => prev >= PIE_CHART_DATA.length ? 1 : prev + 1);
+                setCurrentAutoSlice(prev => prev >= pieData.length ? 1 : prev + 1);
             }, 2000); // Change every 2 seconds
 
             return () => clearInterval(interval);
         }
-    }, [hoveredSlice]);
+    }, [hoveredSlice, pieData]);
 
     // 将 hex 颜色转换为 rgba
     const hexToRgba = (hex: string, alpha: number) => {
@@ -324,9 +306,9 @@ function PieChart() {
                 {/* Left side: Pie Chart */}
                 <div className="flex-shrink-0">
                     <svg width="900" height="900" viewBox="0 0 900 900" className="transform transition-transform duration-300">
-                        {PIE_CHART_DATA.map((slice) => {
+                        {pieData.map((slice) => {
                             const gapAngle = 2; // 2 degrees gap between slices
-                            const totalGaps = PIE_CHART_DATA.length * gapAngle * 2; // Total gap space needed
+                            const totalGaps = pieData.length * gapAngle * 2; // Total gap space needed
                             const availableAngle = 360 - totalGaps; // Available angle for slices
                             const startAngle = currentAngle + gapAngle;
                             const sliceAngle = (slice.percentage / 100) * availableAngle;
@@ -366,7 +348,7 @@ function PieChart() {
                                         }}
                                     />
                                     {/* Label text */}
-                                    {slice.label === 'Sales Automation' || slice.label === 'Query & Insights' || slice.label === 'Document Processing' || slice.label === 'Knowledge Management' || slice.label === 'Finance Automation' || slice.label === 'Purchasing Automation' || slice.label === 'Inventory Automation' ? (
+                                    {slice.label === 'Sales Automation' || slice.label === 'Query & Insights' || slice.label === 'Document Processing' || slice.label === 'Knowledge Management' || slice.label === 'Finance Automation' || slice.label === 'Purchasing Automation' || slice.label === 'Inventory Automation' || slice.label === 'Automação de Vendas' || slice.label === 'Consulta e Insights' || slice.label === 'Processamento de Documentos' || slice.label === 'Gestão do Conhecimento' || slice.label === 'Automação Financeira' || slice.label === 'Automação de Compras' || slice.label === 'Automação de Inventário' || slice.label === 'Automatización de Ventas' || slice.label === 'Consulta y Perspectivas' || slice.label === 'Procesamiento de Documentos' || slice.label === 'Gestión del Conocimiento' || slice.label === 'Automatización Financiera' || slice.label === 'Automatización de Compras' || slice.label === 'Automatización de Inventario' ? (
                                         // Two-line text for specific labels
                                         <>
                                             <text
@@ -385,13 +367,14 @@ function PieChart() {
                                                     transition: 'all 0.3s ease'
                                                 }}
                                             >
-                                                {slice.label === 'Sales Automation' ? 'Sales' :
-                                                    slice.label === 'Query & Insights' ? 'Query &' :
-                                                        slice.label === 'Document Processing' ? 'Document' :
-                                                            slice.label === 'Knowledge Management' ? 'Knowledge' :
-                                                                slice.label === 'Finance Automation' ? 'Finance' :
-                                                                    slice.label === 'Purchasing Automation' ? 'Purchasing' :
-                                                                        'Inventory'}
+                                                {slice.label === 'Sales Automation' || slice.label === 'Automação de Vendas' || slice.label === 'Automatización de Ventas' ? 'Sales' :
+                                                    slice.label === 'Automação de Inventário' || slice.label === 'Automatización de Inventario' ? 'Inventory' :
+                                                        slice.label === 'Query & Insights' || slice.label === 'Consulta e Insights' || slice.label === 'Consulta y Perspectivas' ? 'Query &' :
+                                                            slice.label === 'Document Processing' || slice.label === 'Processamento de Documentos' || slice.label === 'Procesamiento de Documentos' ? 'Document' :
+                                                                slice.label === 'Knowledge Management' || slice.label === 'Gestão do Conhecimento' || slice.label === 'Gestión del Conocimiento' ? 'Knowledge' :
+                                                                    slice.label === 'Finance Automation' || slice.label === 'Automação Financeira' || slice.label === 'Automatización Financiera' ? 'Finance' :
+                                                                        slice.label === 'Purchasing Automation' || slice.label === 'Automação de Compras' || slice.label === 'Automatización de Compras' ? 'Purchasing' :
+                                                                            'Inventory'}
                                             </text>
                                             <text
                                                 x={labelX}
@@ -409,13 +392,14 @@ function PieChart() {
                                                     transition: 'all 0.3s ease'
                                                 }}
                                             >
-                                                {slice.label === 'Sales Automation' ? 'Automation' :
-                                                    slice.label === 'Query & Insights' ? 'Insights' :
-                                                        slice.label === 'Document Processing' ? 'Processing' :
-                                                            slice.label === 'Knowledge Management' ? 'Management' :
-                                                                slice.label === 'Finance Automation' ? 'Automation' :
-                                                                    slice.label === 'Purchasing Automation' ? 'Automation' :
-                                                                        'Automation'}
+                                                {slice.label === 'Sales Automation' || slice.label === 'Automação de Vendas' || slice.label === 'Automatización de Ventas' ? 'Automation' :
+                                                    slice.label === 'Inventory Automation' || slice.label === 'Automação de Inventário' || slice.label === 'Automatización de Inventario' ? 'Automation' :
+                                                        slice.label === 'Query & Insights' || slice.label === 'Consulta e Insights' || slice.label === 'Consulta y Perspectivas' ? 'Insights' :
+                                                            slice.label === 'Document Processing' || slice.label === 'Processamento de Documentos' || slice.label === 'Procesamiento de Documentos' ? 'Processing' :
+                                                                slice.label === 'Knowledge Management' || slice.label === 'Gestão do Conhecimento' || slice.label === 'Gestión del Conocimiento' ? 'Management' :
+                                                                    slice.label === 'Finance Automation' || slice.label === 'Automação Financeira' || slice.label === 'Automatización Financiera' ? 'Automation' :
+                                                                        slice.label === 'Purchasing Automation' || slice.label === 'Automação de Compras' || slice.label === 'Automatización de Compras' ? 'Automation' :
+                                                                            'Automation'}
                                             </text>
                                         </>
                                     ) : (
@@ -463,7 +447,7 @@ function PieChart() {
                             fontWeight="bold"
                             className="pointer-events-none"
                         >
-                            Agentic AI For
+                            {t('agentic.pieChartFor')}
                         </text>
                         <text
                             x="450"
@@ -475,7 +459,7 @@ function PieChart() {
                             fontWeight="600"
                             className="pointer-events-none"
                         >
-                            SAP Business One
+                            {t('agentic.pieChartSAP')}
                         </text>
                     </svg>
                 </div>
@@ -485,8 +469,8 @@ function PieChart() {
                     <div className="bg-white card-shadow-white p-6 animate-in fade-in slide-in-from-left-2 duration-200">
                         {(() => {
                             const displaySlice = hoveredSlice !== null
-                                ? PIE_CHART_DATA.find(s => s.id === hoveredSlice)
-                                : PIE_CHART_DATA.find(s => s.id === currentAutoSlice);
+                                ? pieData.find(s => s.id === hoveredSlice)
+                                : pieData.find(s => s.id === currentAutoSlice);
 
                             if (!displaySlice) return null;
 
@@ -511,15 +495,15 @@ function PieChart() {
             </div>
 
             {/* Icons positioned absolutely over SVG */}
-            {PIE_CHART_DATA.map((slice) => {
+            {pieData.map((slice) => {
                 const gapAngle = 2;
-                const totalGaps = PIE_CHART_DATA.length * gapAngle * 2;
+                const totalGaps = pieData.length * gapAngle * 2;
                 const availableAngle = 360 - totalGaps;
                 let currentAngle = 0;
 
                 // Find the slice's position
                 for (let i = 0; i < slice.id - 1; i++) {
-                    currentAngle += gapAngle + (PIE_CHART_DATA[i].percentage / 100) * availableAngle + gapAngle;
+                    currentAngle += gapAngle + (pieData[i].percentage / 100) * availableAngle + gapAngle;
                 }
 
                 const startAngle = currentAngle + gapAngle;
@@ -567,11 +551,15 @@ function PieChart() {
 }
 
 export default function AgenticAIProduct() {
+    const { t } = useI18n();
     const [activeTab, setActiveTab] = useState('document-extraction');
     const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
 
-    const activeTabData = TABS_DATA.find(tab => tab.id === activeTab);
-    const activeTabIndex = TABS_DATA.findIndex(tab => tab.id === activeTab);
+    const tabsData = getTabsData(t);
+    const pieChartData = getPieChartData(t);
+
+    const activeTabData = tabsData.find(tab => tab.id === activeTab);
+    const activeTabIndex = tabsData.findIndex(tab => tab.id === activeTab);
 
     return (
         <div className="min-h-screen">
@@ -583,16 +571,14 @@ export default function AgenticAIProduct() {
                     <div className="max-w-7xl mx-auto px-8 pt-16 text-center space-y-6">
                         <div className="flex justify-center">
                             <div className="text-sm text-primary uppercase tracking-wider font-bold">
-                                Agentic AI for SAP Business One
+                                {t('agentic.heroTag')}
                             </div>
                         </div>
                         <h1 className="hero-title gradient-text">
-                            Purpose-built Agentic AI<br />
-                            for SAP Business One
-                            and its add-ons
+                            {t('agentic.heroTitle')}
                         </h1>
                         <p className="text-lg text-black max-w-3xl mx-auto leading-relaxed">
-                            Role based, seamlessly integrated, out-of-box adoption with enterprise security
+                            {t('agentic.heroSubtitle')}
                         </p>
                     </div>
 
@@ -602,7 +588,7 @@ export default function AgenticAIProduct() {
                             Built-in Process Automation Capabilities and Beyond
                         </h2> */}
 
-                        <PieChart />
+                        <PieChart pieData={pieChartData} t={t} />
                     </div>
                 </div>
             </section>
@@ -637,7 +623,7 @@ export default function AgenticAIProduct() {
                                 }}
                             />
                             {/* Tab 按钮 */}
-                            {TABS_DATA.map((tab) => (
+                            {tabsData.map((tab) => (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
@@ -675,7 +661,7 @@ export default function AgenticAIProduct() {
                                         {/* Feature Highlights Card */}
                                         <div className="w-full bg-white p-6 card-shadow-white">
                                             <h3 className="text-2xl font-serif-display text-foreground mb-6">
-                                                Feature Highlights
+                                                {t('agentic.featureHighlights')}
                                             </h3>
                                             <ul className="flex flex-col gap-2 text-left items-start list-none pl-6">
                                                 {activeTabData.features.map((feature, idx) => (
@@ -690,7 +676,7 @@ export default function AgenticAIProduct() {
                                         {/* Value Highlights Card */}
                                         <div className="w-full bg-white p-6 card-shadow-white">
                                             <h3 className="text-2xl font-serif-display text-foreground mb-6">
-                                                Value Highlights
+                                                {t('agentic.valueHighlights')}
                                             </h3>
                                             <ul className="flex flex-col gap-2 list-none pl-6">
                                                 {activeTabData.highlights.map((highlight, idx) => (
@@ -727,7 +713,7 @@ export default function AgenticAIProduct() {
                                         {/* Feature Highlights Card */}
                                         <div className="bg-white p-6 card-shadow-white">
                                             <h3 className="text-2xl font-serif-display text-foreground mb-6">
-                                                Feature Highlights
+                                                {t('agentic.featureHighlights')}
                                             </h3>
                                             <ul className="flex flex-col gap-2 text-left items-start list-none pl-6">
                                                 {activeTabData.features.map((feature, idx) => (
@@ -742,7 +728,7 @@ export default function AgenticAIProduct() {
                                         {/* Value Highlights Card */}
                                         <div className="bg-white p-6 card-shadow-white">
                                             <h3 className="text-2xl font-serif-display text-foreground mb-6">
-                                                Value Highlights
+                                                {t('agentic.valueHighlights')}
                                             </h3>
                                             <ul className="flex flex-col gap-2 list-none pl-6">
                                                 {activeTabData.highlights.map((highlight, idx) => (
@@ -843,7 +829,7 @@ export default function AgenticAIProduct() {
             <section className="py-20 px-8 bg-white/50">
                 <div className="max-w-7xl mx-auto">
                     <h3 className="section-title font-serif-display text-foreground mb-12 text-center">
-                        Safe, Secure, Built for Business.
+                        {t('agentic.safeSecure')}
                     </h3>
 
                     {/* 3 columns with rectangular cards - Security features */}
@@ -855,17 +841,17 @@ export default function AgenticAIProduct() {
                             </div>
                             <div className="p-8">
                                 <h4 className="text-4xl font-serif-display text-foreground mb-8 leading-tight">
-                                    Secure &<br /> Compliant
+                                    {t('agentic.secureCompliant')}
                                 </h4>
                                 <div className="space-y-4 text-left">
                                     <p className="text-lg text-gray-600">
-                                        Your data stays within SAP Business One
+                                        {t('agentic.dataInSAP')}
                                     </p>
                                     <p className="text-lg text-gray-600">
-                                        Role based authorization control
+                                        {t('agentic.roleBased')}
                                     </p>
                                     <p className="text-lg text-gray-600">
-                                        Data Privacy Protection Compliance
+                                        {t('agentic.dataPrivacy')}
                                     </p>
                                 </div>
                             </div>
@@ -879,14 +865,14 @@ export default function AgenticAIProduct() {
                             </div>
                             <div className="p-8">
                                 <h4 className="text-4xl font-serif-display text-foreground mb-8 leading-tight">
-                                    Accurate &<br /> Reliable
+                                    {t('agentic.accurateReliable')}
                                 </h4>
                                 <div className="space-y-4 text-left">
                                     <p className="text-lg text-gray-600">
-                                        Connect to on-premise or Cloud SAP Business One Database
+                                        {t('agentic.connectSAP')}
                                     </p>
                                     <p className="text-lg text-gray-600">
-                                        Choose your preferrable LLM
+                                        {t('agentic.chooseLLM')}
                                     </p>
                                 </div>
                             </div>
@@ -899,14 +885,14 @@ export default function AgenticAIProduct() {
                             </div>
                             <div className="bg-white card-shadow-white p-8">
                                 <h4 className="text-4xl font-serif-display text-foreground mb-8 leading-tight">
-                                    Flexible &<br />Extensible
+                                    {t('agentic.flexibleExtensible')}
                                 </h4>
                                 <div className="space-y-4 text-left">
                                     <p className="text-lg text-gray-600">
-                                        Out-of-box adoption
+                                        {t('agentic.outOfBox')}
                                     </p>
                                     <p className="text-lg text-gray-600">
-                                        Customize and integrate with add-ons or 3rd party application with Enterprise AI Agent Build Platform
+                                        {t('agentic.customize')}
                                     </p>
                                 </div>
                             </div>
