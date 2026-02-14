@@ -10,8 +10,10 @@ import GradientDivider from './components/GradientDivider';
 import TransformAnimation from './components/TransformAnimation';
 import DemoForm from './components/DemoForm';
 import { IMAGES } from './utils/images';
+import { useI18n } from './i18n/I18nContext';
 
 export default function Home() {
+  const { t } = useI18n();
   const [uxActiveIndex, setUxActiveIndex] = useState(0);
   const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
   // Carousel data for Hero section
@@ -21,9 +23,9 @@ export default function Home() {
       content: (
         <HeroCarouselItem
           image={IMAGES.HERO_1}
-          title="Harness Power of AI for SAP Business One with Built-in Agentic Layer"
-          subtitle="Efficiency Improvement"
-          metricValue="10X"
+          title={t('carousel.hero1.title')}
+          subtitle={t('carousel.hero1.subtitle')}
+          metricValue={t('carousel.hero1.metric')}
           fullWidth={false}
           isActive={true}
           animationDelay={0}
@@ -37,9 +39,9 @@ export default function Home() {
       content: (
         <HeroCarouselItem
           image={IMAGES.HERO_2}
-          title="Empower SMBs with Digital Workers"
-          subtitle="Productivity Gain"
-          metricValue="+50%"
+          title={t('carousel.hero2.title')}
+          subtitle={t('carousel.hero2.subtitle')}
+          metricValue={t('carousel.hero2.metric')}
           fullWidth={false}
           isActive={false}
           animationDelay={200}
@@ -53,9 +55,9 @@ export default function Home() {
       content: (
         <HeroCarouselItem
           image={IMAGES.HERO_3}
-          title="Transform the way SMBs Operates to Agentic Enterprise"
-          subtitle="Profits Optimization"
-          metricValue="+10%"
+          title={t('carousel.hero3.title')}
+          subtitle={t('carousel.hero3.subtitle')}
+          metricValue={t('carousel.hero3.metric')}
           fullWidth={false}
           isActive={false}
           animationDelay={400}
@@ -80,25 +82,23 @@ export default function Home() {
             </div>
 
             <h1 className="hero-title gradient-text">
-              Future-Proof<br />
-              SAP Business One Success<br />
-              in the AI Era
+              {t('hero.title').split('\n').map((line, i) => (
+                <span key={i}>
+                  {line}<br />
+                </span>
+              ))}
             </h1>
 
             <p className="text-base lg:text-lg text-black max-w-xl lg:max-w-3xl mx-auto leading-relaxed">
-              Purpose-built agentic AI for SAP Business One, empowering your enterprise
-              with digital workers to maximize efficiency and optimize performance
+              {t('hero.subtitle')}
             </p>
 
             <div className="flex justify-center space-x-4 pt-2">
-              {/* <button className="border border-black px-6 py-4 hover:bg-black hover:text-white transition-colors cursor-pointer">
-                Start Free Trial
-              </button> */}
               <button
                 onClick={() => setIsDemoFormOpen(true)}
                 className="bg-primary text-white px-4 py-3 text-sm lg:px-6 lg:py-4 lg:text-base hover:bg-primary/90 transition-colors cursor-pointer"
               >
-                Get A Demo
+                {t('hero.cta')}
               </button>
             </div>
           </div>
@@ -131,10 +131,10 @@ export default function Home() {
                 <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
               </div>
               <h2 className="section-title text-foreground">
-                Empower SMBs with Digital Workers
+                {t('digitalWorkers.title')}
               </h2>
               <p className="text-base lg:text-lg text-foreground/70">
-                Flexible and agile, accurate and reliable, simple and intuitive
+                {t('digitalWorkers.subtitle')}
               </p>
               <div className="flex justify-center">
                 <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
@@ -145,14 +145,14 @@ export default function Home() {
           {/* 内容区域 */}
           <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-9">
             <div className="w-full lg:flex-1 lg:max-w-lg space-y-4 lg:space-y-6 py-4 lg:py-8">
-              <h2 className="section-title text-foreground">Automate Business Processes</h2>
+              <h2 className="section-title text-foreground">{t('digitalWorkers.sectionTitle')}</h2>
               <div className="group cursor-pointer">
                 <p className="text-lg text-black leading-relaxed">
-                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">AI agents as role based Digital Workers</span><br />
-                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-2">monitor business data and performance,</span><br />
-                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-3">proactively plan and recommend actions, automate business</span><br />
-                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-4">processes, and engage with human workers to drive performance</span><br />
-                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-5">optimization continuously and autonomously</span>
+                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">{t('digitalWorkers.description1')}</span><br />
+                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-2">{t('digitalWorkers.description2')}</span><br />
+                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-3">{t('digitalWorkers.description3')}</span><br />
+                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-4">{t('digitalWorkers.description4')}</span><br />
+                  <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-5">{t('digitalWorkers.description5')}</span>
                 </p>
               </div>
             </div>
@@ -169,8 +169,8 @@ export default function Home() {
                 Your browser does not support the video tag.
               </video>
               <div className="flex flex-col gap-2 text-center">
-                <span className="relative text-lg inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">Harness Power of AI for SAP Business One with built-in Agentic Layer</span>
-                <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">Sales order automation example</span>
+                <span className="relative text-lg inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">{t('digitalWorkers.videoTitle')}</span>
+                <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">{t('digitalWorkers.videoSubtitle')}</span>
               </div>
             </div>
           </div>
@@ -193,8 +193,7 @@ export default function Home() {
                 Your browser does not support the video tag.
               </video>
               <div className="flex flex-col gap-2 text-center">
-                <span className="relative text-lg inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">Nature Language Data Query</span>
-                {/* <span className="relative inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">Sales order automation example</span> */}
+                <span className="relative text-lg inline-block break-words lg:whitespace-nowrap group-hover:before:animate-highlight-1">{t('analytics.videoTitle')}</span>
               </div>
             </div>
             <div className="flex-2 space-y-6 lg:space-y-9 py-4 lg:py-8">
@@ -202,14 +201,14 @@ export default function Home() {
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
                 </div>
-                <h2 className="section-title text-foreground">Reinvent Analytics</h2>
+                <h2 className="section-title text-foreground">{t('analytics.title')}</h2>
                 <div className="w-30 h-px bg-primary group-hover:w-40 transition-all duration-500"></div>
               </div>
               <div className="space-y-4">
-                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">Query your business data anywhere, any time</p>
-                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">Generate real-time report and dashboard with reasoning and visualization</p>
-                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">Make manual, static report generation a thing of the past</p>
-                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">Provide insights and Recommendations - more than just reports</p>
+                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">{t('analytics.feature1')}</p>
+                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">{t('analytics.feature2')}</p>
+                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">{t('analytics.feature3')}</p>
+                <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">{t('analytics.feature4')}</p>
               </div>
             </div>
           </div>
@@ -224,7 +223,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
               </div>
-              <h2 className="section-title text-foreground">Modernize User Experience</h2>
+              <h2 className="section-title text-foreground">{t('ux.title')}</h2>
               <div className="flex justify-center">
                 <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
               </div>
@@ -237,8 +236,8 @@ export default function Home() {
                   : 'bg-white/50 card-shadow-white hover:bg-purple-100/50'
                   }`}>
                   <p className="text-lg lg:text-xl text-black group-hover:text-purple-700 transition-colors duration-300">
-                    <span className="font-serif-display text-2xl lg:text-3xl group-hover:text-purple-800 transition-colors duration-300">Nature language interaction </span>
-                    for seamless integrated and intuitive experience like never before
+                    <span className="font-serif-display text-2xl lg:text-3xl group-hover:text-purple-800 transition-colors duration-300">{t('ux.card1.title')} </span>
+                    {t('ux.card1.desc')}
                   </p>
                   <div className="w-0 group-hover:w-full h-0.5 bg-purple-600 transition-all duration-500 mt-4"></div>
                 </div>
@@ -247,8 +246,8 @@ export default function Home() {
                   : 'bg-white/50 card-shadow-white hover:bg-purple-100/50'
                   }`}>
                   <p className="text-xl text-black group-hover:text-purple-700 transition-colors duration-300">
-                    <span className="font-serif-display text-3xl group-hover:text-purple-800 transition-colors duration-300">Let digital workers </span>
-                    plan and act to optimize profits and performance
+                    <span className="font-serif-display text-3xl group-hover:text-purple-800 transition-colors duration-300">{t('ux.card2.title')} </span>
+                    {t('ux.card2.desc')}
                   </p>
                   <div className="w-0 group-hover:w-full h-0.5 bg-purple-600 transition-all duration-500 mt-4"></div>
                 </div>
@@ -257,8 +256,8 @@ export default function Home() {
                   : 'bg-white/50 card-shadow-white hover:bg-purple-100/50'
                   }`}>
                   <p className="text-xl text-black group-hover:text-purple-700 transition-colors duration-300">
-                    <span className="font-serif-display text-3xl group-hover:text-purple-800 transition-colors duration-300">Available on mobile </span>
-                    with WhatsApp integration
+                    <span className="font-serif-display text-3xl group-hover:text-purple-800 transition-colors duration-300">{t('ux.card3.title')} </span>
+                    {t('ux.card3.desc')}
                   </p>
                   <div className="w-0 group-hover:w-full h-0.5 bg-purple-600 transition-all duration-500 mt-4"></div>
                 </div>
@@ -341,10 +340,10 @@ export default function Home() {
                 <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
               </div>
               <h2 className="section-title text-foreground">
-                Transform the way SMBs Operates to Agentic Enterprise
+                {t('transform.title')}
               </h2>
               <p className="text-base lg:text-lg text-foreground/70">
-                Business best-practice oriented, easily extensible, complaint and secure
+                {t('transform.subtitle')}
               </p>
               <div className="flex justify-center">
                 <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
@@ -357,30 +356,32 @@ export default function Home() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-12 text-left">
                   <div className="bg-pink-200/30 p-6 lg:p-8 space-y-3 lg:space-y-4 transition-all duration-500 hover:bg-pink-300/40 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20 cursor-pointer group">
                     <h3 className="text-2xl lg:text-3xl font-serif-display text-black group-hover:text-pink-800 transition-colors duration-300">
-                      Improve<br />
-                      Efficiency and<br />
-                      Reduce Cost
+                      {t('transform.card1.title').split('\n').map((line) => (
+                        <>
+                          {line}<br />
+                        </>
+                      ))}
                     </h3>
                     <p className="text-base lg:text-lg text-black group-hover:text-pink-700 transition-colors duration-300">
-                      Digital workers automate tasks, reducing manual workload carried out by end users
+                      {t('transform.card1.desc')}
                     </p>
                     <div className="w-0 group-hover:w-full h-0.5 bg-pink-600 transition-all duration-500 mt-4"></div>
                   </div>
                   <div className="bg-purple-200/30 p-6 lg:p-8 space-y-3 lg:space-y-4 transition-all duration-500 hover:bg-purple-300/40 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer group">
                     <h3 className="text-2xl lg:text-3xl font-serif-display text-black group-hover:text-purple-800 transition-colors duration-300">
-                      Make Impact with Business Data and Knowledge
+                      {t('transform.card2.title')}
                     </h3>
                     <p className="text-base lg:text-lg text-black group-hover:text-purple-700 transition-colors duration-300">
-                      Harness power of AI to unlock value from business data, maximize profits and business performance
+                      {t('transform.card2.desc')}
                     </p>
                     <div className="w-0 group-hover:w-full h-0.5 bg-purple-600 transition-all duration-500 mt-4"></div>
                   </div>
                   <div className="bg-orange-200/30 p-6 lg:p-8 space-y-3 lg:space-y-4 transition-all duration-500 hover:bg-orange-300/40 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20 cursor-pointer group">
                     <h3 className="text-2xl lg:text-3xl font-serif-display text-black group-hover:text-orange-800 transition-colors duration-300">
-                      Foster Collaboration and Harmonize Productivity
+                      {t('transform.card3.title')}
                     </h3>
                     <p className="text-base lg:text-lg text-black group-hover:text-orange-700 transition-colors duration-300">
-                      Create a holistic and seamless digital and human teamwork experience to streamline productivity
+                      {t('transform.card3.desc')}
                     </p>
                     <div className="w-0 group-hover:w-full h-0.5 bg-orange-600 transition-all duration-500 mt-4"></div>
                   </div>

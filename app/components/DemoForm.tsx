@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useI18n } from '../i18n/I18nContext';
 
 interface DemoFormProps {
     isOpen: boolean;
@@ -8,6 +9,7 @@ interface DemoFormProps {
 }
 
 export default function DemoForm({ isOpen, onClose }: DemoFormProps) {
+    const { t } = useI18n();
     const [formData, setFormData] = useState({
         businessEmail: '',
         firstName: '',
@@ -23,21 +25,21 @@ export default function DemoForm({ isOpen, onClose }: DemoFormProps) {
         const newErrors: Record<string, string> = {};
 
         if (!formData.businessEmail) {
-            newErrors.businessEmail = 'Business email is required';
+            newErrors.businessEmail = t('demo.error.required');
         } else if (!/\S+@\S+\.\S+/.test(formData.businessEmail)) {
-            newErrors.businessEmail = 'Please enter a valid email address';
+            newErrors.businessEmail = t('demo.error.invalidEmail');
         }
 
         if (!formData.firstName) {
-            newErrors.firstName = 'First name is required';
+            newErrors.firstName = t('demo.error.required');
         }
 
         if (!formData.lastName) {
-            newErrors.lastName = 'Last name is required';
+            newErrors.lastName = t('demo.error.required');
         }
 
         if (!formData.companyName) {
-            newErrors.companyName = 'Company name is required';
+            newErrors.companyName = t('demo.error.required');
         }
 
         setErrors(newErrors);
@@ -100,7 +102,7 @@ ${formData.firstName} ${formData.lastName}
                 {/* Header - 固定 */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-200 flex-shrink-0">
                     <h2 className="text-xl lg:text-2xl font-serif-display text-foreground">
-                        Get a Demo
+                        {t('demo.title')}
                     </h2>
                     <button
                         onClick={onClose}
@@ -118,16 +120,16 @@ ${formData.firstName} ${formData.lastName}
                         {/* Business Email */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Business Email *
+                                {t('demo.businessEmail')}
                             </label>
                             <p className="text-xs text-gray-500 mb-2">
-                                Please use a business email to be connected with our sales team
+                                {t('demo.businessEmailHint')}
                             </p>
                             <input
                                 type="email"
                                 value={formData.businessEmail}
                                 onChange={(e) => handleInputChange('businessEmail', e.target.value)}
-                                placeholder="Enter your work email"
+                                placeholder={t('demo.businessEmailPlaceholder')}
                                 className={`w-full px-3 py-2.5 lg:px-4 lg:py-3 border transition-colors ${errors.businessEmail
                                     ? 'border-red-500 focus:border-red-500'
                                     : 'border-gray-300 focus:border-primary'
@@ -142,13 +144,13 @@ ${formData.firstName} ${formData.lastName}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    First Name *
+                                    {t('demo.firstName')}
                                 </label>
                                 <input
                                     type="text"
                                     value={formData.firstName}
                                     onChange={(e) => handleInputChange('firstName', e.target.value)}
-                                    placeholder="Enter your first name"
+                                    placeholder={t('demo.firstNamePlaceholder')}
                                     className={`w-full px-3 py-2.5 lg:px-4 lg:py-3 border transition-colors ${errors.firstName
                                         ? 'border-red-500 focus:border-red-500'
                                         : 'border-gray-300 focus:border-primary'
@@ -160,13 +162,13 @@ ${formData.firstName} ${formData.lastName}
                             </div>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Last Name *
+                                    {t('demo.lastName')}
                                 </label>
                                 <input
                                     type="text"
                                     value={formData.lastName}
                                     onChange={(e) => handleInputChange('lastName', e.target.value)}
-                                    placeholder="Enter your last name"
+                                    placeholder={t('demo.lastNamePlaceholder')}
                                     className={`w-full px-3 py-2.5 lg:px-4 lg:py-3 border transition-colors ${errors.lastName
                                         ? 'border-red-500 focus:border-red-500'
                                         : 'border-gray-300 focus:border-primary'
@@ -181,13 +183,13 @@ ${formData.firstName} ${formData.lastName}
                         {/* Company Name */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Company Name *
+                                {t('demo.companyName')}
                             </label>
                             <input
                                 type="text"
                                 value={formData.companyName}
                                 onChange={(e) => handleInputChange('companyName', e.target.value)}
-                                placeholder="Enter your company's name"
+                                placeholder={t('demo.companyNamePlaceholder')}
                                 className={`w-full px-3 py-2.5 lg:px-4 lg:py-3 border transition-colors ${errors.companyName
                                     ? 'border-red-500 focus:border-red-500'
                                     : 'border-gray-300 focus:border-primary'
@@ -201,14 +203,14 @@ ${formData.firstName} ${formData.lastName}
                         {/* SAP Business One Users */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                                SAP Business One Users (Optional)
+                                {t('demo.sapUsers')}
                             </label>
                             <select
                                 value={formData.sapUsers}
                                 onChange={(e) => handleInputChange('sapUsers', e.target.value)}
                                 className="w-full px-4 py-3 border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                             >
-                                <option value="">Select SAP Business One users</option>
+                                <option value="">{t('demo.sapUsersSelect')}</option>
                                 <option value="<10">&lt;10</option>
                                 <option value="10-50">10-50</option>
                                 <option value=">50">&gt;50</option>
@@ -218,13 +220,13 @@ ${formData.firstName} ${formData.lastName}
                         {/* Partner Name */}
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Your SAP Business One Partner Name (Optional)
+                                {t('demo.partnerName')}
                             </label>
                             <input
                                 type="text"
                                 value={formData.partnerName}
                                 onChange={(e) => handleInputChange('partnerName', e.target.value)}
-                                placeholder="Enter your partner name"
+                                placeholder={t('demo.partnerNamePlaceholder')}
                                 className="w-full px-4 py-3 border border-gray-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                             />
                         </div>
@@ -238,11 +240,11 @@ ${formData.firstName} ${formData.lastName}
                     <p className="text-xs text-gray-600 mb-4">
                         By submitting this form, you agree to AgentAll AI&apos;s{' '}
                         <a href="#" className="text-primary underline hover:text-primary/80">
-                            Terms of Service
+                            {t('demo.terms')}
                         </a>{' '}
                         and{' '}
                         <a href="#" className="text-primary underline hover:text-primary/80">
-                            Privacy Policy
+                            {t('demo.privacy')}
                         </a>
                         .
                     </p>
@@ -253,7 +255,7 @@ ${formData.firstName} ${formData.lastName}
                         form="demo-form"
                         className="w-full bg-primary text-white py-2.5 lg:py-3 px-6 font-medium hover:bg-primary/90 transition-colors"
                     >
-                        Get a Demo
+                        {t('demo.submit')}
                     </button>
                 </div>
             </div>

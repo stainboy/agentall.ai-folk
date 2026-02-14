@@ -7,8 +7,10 @@ import DemoForm from '../../components/DemoForm';
 import GradientDivider from '../../components/GradientDivider';
 import { getImagePath } from '@/app/utils/images';
 import Image from 'next/image';
+import { useI18n } from '../../i18n/I18nContext';
 
 export default function PlatformProduct() {
+    const { t } = useI18n();
     const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
 
     return (
@@ -21,16 +23,14 @@ export default function PlatformProduct() {
                     <div className="max-w-7xl mx-auto px-8 pt-16 text-center space-y-6">
                         <div className="flex justify-center">
                             <div className="text-sm text-primary uppercase tracking-wider font-bold">
-                                Agentic AI Build Platform
+                                {t('platform.heroTag')}
                             </div>
                         </div>
                         <h1 className="hero-title gradient-text">
-                            Low-code agentic workflow
-                            <br />
-                            build and customization platform
+                            {t('platform.heroTitle')}
                         </h1>
                         <p className="text-lg text-black max-w-3xl mx-auto leading-relaxed">
-                            Infuse AI into SAP Business One, add-ons and beyond
+                            {t('platform.heroSubtitle')}
                         </p>
                     </div>
 
@@ -60,20 +60,20 @@ export default function PlatformProduct() {
                         {/* Left side: Content */}
                         <div className="flex flex-col items-start gap-12">
                             <h2 className="section-title font-serif-display text-foreground">
-                                Customize and build agentic workflows with built-in business skills
+                                {t('platform.section1Title')}
                             </h2>
                             <div className="flex justify-center">
                                 <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
                             </div>
                             <div className="space-y-4">
                                 <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">
-                                    Intuitive Canvas to customize and build workflows easily
+                                    {t('platform.section1Feature1')}
                                 </p>
                                 <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">
-                                    Built-in with SAP Business One business services, i.e. encapsulated APIs
+                                    {t('platform.section1Feature2')}
                                 </p>
                                 <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">
-                                    Built-in with MCP tools: Document Extraction, ChatBI etc.
+                                    {t('platform.section1Feature3')}
                                 </p>
                             </div>
                         </div>
@@ -112,20 +112,20 @@ export default function PlatformProduct() {
                         {/* Right side: Content */}
                         <div className="flex flex-col items-start gap-12">
                             <h2 className="section-title font-serif-display text-foreground">
-                                Role based authorization control and data security applies everywhere
+                                {t('platform.section2Title')}
                             </h2>
                             <div className="flex justify-center">
                                 <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
                             </div>
                             <div className="space-y-4">
                                 <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">
-                                    Authorization control applied at different level from agents to workflows, and associated with SAP Business One user roles
+                                    {t('platform.section2Feature1')}
                                 </p>
                                 <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">
-                                    Data access control strictly defined at object-level granularity
+                                    {t('platform.section2Feature2')}
                                 </p>
                                 <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">
-                                    Enterprise level security and data privacy protection rules compliant
+                                    {t('platform.section2Feature3')}
                                 </p>
                             </div>
                         </div>
@@ -140,14 +140,14 @@ export default function PlatformProduct() {
                         {/* Left side: Content */}
                         <div className="flex flex-col items-start gap-12">
                             <h2 className="section-title font-serif-display text-foreground">
-                                Choose your preferred Large Language Models
+                                {t('platform.section3Title')}
                             </h2>
                             <div className="flex justify-center">
                                 <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
                             </div>
                             <div className="space-y-4">
                                 <p className="text-lg text-black relative inline-block hover:text-xl hover:before:animate-highlight-1 cursor-pointer transition-all duration-300">
-                                    Model-as-a-Service to plug in any global large language model or consume agentall.ai proprietary LLM offering
+                                    {t('platform.section3Feature1')}
                                 </p>
                             </div>
                         </div>

@@ -1,15 +1,20 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import DemoForm from '../components/DemoForm';
 import Logo from '../components/Logo';
+import { useI18n } from '../i18n/I18nContext';
 
 export default function Resources() {
+    const { t } = useI18n();
+    const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
+    
     const resourceItems = [
         {
             id: 'product-collaterals',
-            label: 'Product Collaterals',
+            label: t('resources.productCollaterals'),
             position: 'top-right',
             angle: 85,
             offset: 200,
@@ -17,7 +22,7 @@ export default function Resources() {
         },
         {
             id: 'user-manual',
-            label: 'User Manual',
+            label: t('resources.userManual'),
             position: 'right',
             angle: 15,
             offset: 280,
@@ -25,7 +30,7 @@ export default function Resources() {
         },
         {
             id: 'configuration-guide',
-            label: 'Configuration Guide',
+            label: t('resources.configurationGuide'),
             position: 'bottom-right',
             angle: -15,
             offset: 280,
@@ -33,7 +38,7 @@ export default function Resources() {
         },
         {
             id: 'partner-portal',
-            label: 'Partner Portal',
+            label: t('resources.partnerPortal'),
             position: 'bottom-left',
             angle: -115,
             offset: 180,
@@ -41,7 +46,7 @@ export default function Resources() {
         },
         {
             id: 'product-demo',
-            label: 'Product Demo',
+            label: t('resources.productDemo'),
             position: 'top-left',
             angle: 95,
             offset: 280,
@@ -54,7 +59,7 @@ export default function Resources() {
 
     return (
         <div className="min-h-screen h-screen">
-            <Navigation currentPage="resources" />
+            <Navigation currentPage="resources" onDemoClick={() => setIsDemoFormOpen(true)} />
 
             {/* Resources Section */}
             <section className="min-h-screen py-24 lg:py-32 flex items-center justify-center relative">
@@ -64,10 +69,10 @@ export default function Resources() {
                         <div className="flex flex-col items-center justify-center">
                             <div className="text-center mb-8">
                                 <h2 className="section-title-small text-foreground mb-2">
-                                    AI Intelligent Solutions
+                                    {t('resources.title')}
                                 </h2>
                                 <p className="text-sm lg:text-base text-foreground/70">
-                                    Explore our resources
+                                    {t('resources.subtitle')}
                                 </p>
                             </div>
 
@@ -136,7 +141,7 @@ export default function Resources() {
 
                             {/* Welcome Title */}
                             <h2 className="text-4xl font-serif-display text-foreground mb-8">
-                                Welcome
+                                {t('resources.welcome')}
                             </h2>
 
                             {/* Login Form */}
@@ -144,7 +149,7 @@ export default function Resources() {
                                 {/* Phone Number Input */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Phone Number
+                                        {t('resources.phoneLabel')}
                                     </label>
                                     <div className="flex items-center border border-gray-300 px-4 py-3 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
                                         <svg
@@ -162,13 +167,13 @@ export default function Resources() {
                                         </svg>
                                         <input
                                             type="tel"
-                                            placeholder="Please enter phone num"
+                                            placeholder={t('resources.phonePlaceholder')}
                                             value={phoneNumber}
                                             onChange={(e) => setPhoneNumber(e.target.value)}
                                             className="flex-1 outline-none text-sm"
                                         />
                                         <button className="text-sm text-primary hover:text-primary/80 transition-colors">
-                                            Send Verification Code
+                                            {t('resources.sendCode')}
                                         </button>
                                     </div>
                                 </div>
@@ -176,7 +181,7 @@ export default function Resources() {
                                 {/* Verification Code Input */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Verification Code
+                                        {t('resources.codeLabel')}
                                     </label>
                                     <div className="flex items-center border border-gray-300 px-4 py-3 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
                                         <svg
@@ -194,7 +199,7 @@ export default function Resources() {
                                         </svg>
                                         <input
                                             type="text"
-                                            placeholder="Please enter verification code"
+                                            placeholder={t('resources.codePlaceholder')}
                                             value={verificationCode}
                                             onChange={(e) => setVerificationCode(e.target.value)}
                                             className="flex-1 outline-none text-sm"
@@ -204,7 +209,7 @@ export default function Resources() {
 
                                 {/* Continue Button */}
                                 <button className="w-full bg-primary text-white py-4 font-medium hover:bg-primary/90 transition-colors duration-300">
-                                    Continue
+                                    {t('resources.continue')}
                                 </button>
                             </div>
                         </div>
@@ -213,6 +218,11 @@ export default function Resources() {
             </section>
 
             <Footer />
+
+            <DemoForm
+                isOpen={isDemoFormOpen}
+                onClose={() => setIsDemoFormOpen(false)}
+            />
         </div>
     );
 }

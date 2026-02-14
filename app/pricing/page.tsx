@@ -4,8 +4,10 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import DemoForm from '../components/DemoForm';
+import { useI18n } from '../i18n/I18nContext';
 
 export default function Pricing() {
+    const { t } = useI18n();
     const [isDemoFormOpen, setIsDemoFormOpen] = useState(false);
 
     return (
@@ -26,12 +28,11 @@ export default function Pricing() {
                                 <div className="w-3 h-3 bg-pink-500 rounded-full"></div>
                             </div>
                             <h2 className="text-5xl font-serif-display text-black">
-                                Agentic AI for<br />
-                                SAP Business One
+                                {t('pricing.agenticAiTitle')}
                             </h2>
                             <div className="w-30 h-px bg-pink-500 solid-border"></div>
                             <p className="text-lg text-black h-14 flex items-start">
-                                Standard
+                                {t('pricing.standard')}
                             </p>
 
                             {/* Main Pricing Card */}
@@ -39,9 +40,9 @@ export default function Pricing() {
                                 <div className="flex flex-col lg:flex-row justify-between items-end gap-4">
                                     <div className="space-y-4">
                                         <h3 className="text-lg text-black">
-                                            10 users,<br />
-                                            10 million tokens,<br />
-                                            <span className="text-pink-500">12 months</span>
+                                            {t('pricing.users')}<br />
+                                            {t('pricing.tokens')}<br />
+                                            <span className="text-pink-500">{t('pricing.period')}</span>
                                         </h3>
                                         {/* <p className="text-lg text-black">B1 Agent Subscription</p> */}
                                     </div>
@@ -56,16 +57,16 @@ export default function Pricing() {
 
                             {/* Additional Usage Section */}
                             <div className="space-y-3">
-                                <h3 className="text-lg text-gray-600">Additional Usage</h3>
+                                <h3 className="text-lg text-gray-600">{t('pricing.additionalUsage')}</h3>
 
                                 {/* Additional User */}
                                 <div className="bg-white/50 backdrop-blur-sm p-3 border border-gray-200/50 hover:bg-white/70 hover:shadow-md transition-all duration-300 cursor-pointer group">
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <p className="text-sm text-gray-700 relative inline-block group-hover:before:animate-highlight-pink-1">1 additional user, 1 month</p>
+                                            <p className="text-sm text-gray-700 relative inline-block group-hover:before:animate-highlight-pink-1">{t('pricing.additionalUser')}</p>
                                         </div>
                                         <div className="text-right">
-                                            <div className="text-lg font-medium text-gray-700">30 Euro</div>
+                                            <div className="text-lg font-medium text-gray-700">30 {t('pricing.price')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,10 +75,10 @@ export default function Pricing() {
                                 <div className="bg-white/50 backdrop-blur-sm p-3 border border-gray-200/50 hover:bg-white/70 hover:shadow-md transition-all duration-300 cursor-pointer group">
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <p className="text-sm text-gray-700 relative inline-block group-hover:before:animate-highlight-pink-1">1 additional agent, 1 month</p>
+                                            <p className="text-sm text-gray-700 relative inline-block group-hover:before:animate-highlight-pink-1">{t('pricing.additionalAgent')}</p>
                                         </div>
                                         <div className="text-right">
-                                            <div className="text-lg font-medium text-gray-700">30 Euro</div>
+                                            <div className="text-lg font-medium text-gray-700">30 {t('pricing.price')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -86,10 +87,10 @@ export default function Pricing() {
                                 <div className="bg-white/50 backdrop-blur-sm p-3 border border-gray-200/50 hover:bg-white/70 hover:shadow-md transition-all duration-300 cursor-pointer group">
                                     <div className="flex justify-between items-center">
                                         <div>
-                                            <p className="text-sm text-gray-700 relative inline-block group-hover:before:animate-highlight-pink-1">1 million tokens</p>
+                                            <p className="text-sm text-gray-700 relative inline-block group-hover:before:animate-highlight-pink-1">{t('pricing.additionalTokens')}</p>
                                         </div>
                                         <div className="text-right">
-                                            <div className="text-lg font-medium text-gray-700">30 Euro</div>
+                                            <div className="text-lg font-medium text-gray-700">30 {t('pricing.price')}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -102,12 +103,11 @@ export default function Pricing() {
                                 <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
                             </div>
                             <h2 className="text-3xl lg:text-5xl font-serif-display text-black">
-                                Enterprise AI Agent Build Platform
+                                {t('pricing.platformTitle')}
                             </h2>
                             <div className="w-30 h-px bg-orange-500 solid-border"></div>
                             <p className="text-lg text-black h-14 flex items-start">
-                                Agentic Platform Professional<br />
-                                (user and agent # limit to B1 agent subscription)
+                                {t('pricing.platformSubtitle')}
                             </p>
 
                             {/* Enterprise Pricing Card */}
@@ -115,9 +115,9 @@ export default function Pricing() {
                                 <div className="flex flex-col lg:flex-row justify-between items-end gap-4">
                                     <div className="space-y-4">
                                         <h3 className="text-lg text-black">
-                                            user and agent<br />
+                                            {t('pricing.users')}<br />
                                             <span className="text-sm text-gray-600 mt-[16px]"># limit to B1 agent subscription</span><br />
-                                            <span className="text-orange-500">12 months</span>
+                                            <span className="text-orange-500">{t('pricing.period')}</span>
                                         </h3>
                                         {/* <p className="text-lg text-black">B1 Agent Subscription</p> */}
                                     </div>
