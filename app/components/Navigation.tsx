@@ -117,6 +117,13 @@ export default function Navigation({ currentPage, onDemoClick }: NavigationProps
                         >
                             {t('nav.pricing')}
                         </Link>
+                        <Link
+                            href="/demo"
+                            className={`relative inline-block hover:before:animate-highlight-nav cursor-pointer px-2 ${currentPage === 'demo' ? 'text-primary font-semibold' : 'text-black'
+                                }`}
+                        >
+                            Demo
+                        </Link>
                     </div>
 
 {/* 右侧 - 登录和按钮 */}
