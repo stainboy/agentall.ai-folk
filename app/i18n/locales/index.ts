@@ -80,6 +80,14 @@ export const en: Record<string, string> = {
 
   'company.title': 'About Our Company',
   'company.subtitle': 'Discover the innovation and vision behind our products',
+  'company.videoNotSupported': 'Your browser does not support the video tag.',
+  'company.aboutUsTitle': 'About Us',
+  'company.aboutUsText1': 'We are a Singapore based company founded by SAP Business One veterans who helped shape the product and its ecosystem, we are on a mission to revive SAP Business One for the next decade by embedding AI capabilities, leveraging our unique product expertise and ecosystem outreach to outcompete in the SMB market.',
+  'company.aboutUsText2': 'In the long run we seek to empower the SMB customers and partners globally to transform and succeed in the AI era.',
+  'company.visionTitle': 'Our Vision',
+  'company.visionSubtitle': 'Future proof success of SAP Business One in the AI era',
+  'company.dataCentersTitle': 'Data Centers',
+  'company.dataCentersText': 'Our data centers are currently located in Singapore and Germany, and will be extended into Americas, allowing our global customers to choose their preferred infrastructure location.',
 
   'resources.title': 'AI Intelligent Solutions',
   'resources.subtitle': 'Explore our resources',
@@ -232,6 +240,11 @@ export const en: Record<string, string> = {
   'demo.submit': 'Get a Demo',
   'demo.error.required': 'is required',
   'demo.error.invalidEmail': 'Please enter a valid email address',
+  'metrics.up': 'Up',
+  'metrics.seconds': 'Seconds',
+  'metrics.minute': 'Minute',
+  'metrics.minutes': 'Minutes',
+  'footer.home': 'Home',
 };
 
 export const pt: Record<string, string> = {
@@ -316,6 +329,14 @@ export const pt: Record<string, string> = {
 
   'company.title': 'Sobre Nossa Empresa',
   'company.subtitle': 'Descubra a inovação e visão por trás de nossos produtos',
+  'company.videoNotSupported': 'Seu navegador não suporta a tag de vídeo.',
+  'company.aboutUsTitle': 'Sobre Nós',
+  'company.aboutUsText1': 'Somos uma empresa sediada em Singapura fundada por veteranos do SAP Business One que ajudaram a moldar o produto e seu ecossistema, estamos em uma missão para reviver o SAP Business One para a próxima década incorporando capacidades de IA, aproveitando nossa expertise única de produto e alcance do ecossistema para superar a concorrência no mercado de PMEs.',
+  'company.aboutUsText2': 'A longo prazo, buscamos capacitar clientes e parceiros de PMEs globalmente para se transformarem e terem sucesso na era da IA.',
+  'company.visionTitle': 'Nossa Visão',
+  'company.visionSubtitle': 'Sucesso à prova de futuro do SAP Business One na era da IA',
+  'company.dataCentersTitle': 'Centros de Dados',
+  'company.dataCentersText': 'Nossos centros de dados estão atualmente localizados em Singapura e Alemanha, e serão estendidos para as Américas, permitindo que nossos clientes globais escolham sua localização de infraestrutura preferida.',
 
   'resources.title': 'Soluções Inteligentes de IA',
   'resources.subtitle': 'Explore nossos recursos',
@@ -468,6 +489,11 @@ export const pt: Record<string, string> = {
   'demo.submit': 'Ver Demo',
   'demo.error.required': 'é obrigatório',
   'demo.error.invalidEmail': 'Por favor, insira um endereço de e-mail válido',
+  'metrics.up': 'Até',
+  'metrics.seconds': 'Segundos',
+  'metrics.minute': 'Minuto',
+  'metrics.minutes': 'Minutos',
+  'footer.home': 'Início',
 };
 
 export const es: Record<string, string> = {
@@ -552,6 +578,15 @@ export const es: Record<string, string> = {
 
   'company.title': 'Sobre Nuestra Empresa',
   'company.subtitle': 'Descubre la innovación y visión detrás de nuestros productos',
+  'company.videoNotSupported': 'Tu navegador no soporta la etiqueta de video.',
+  'company.aboutUsTitle': 'Sobre Nosotros',
+  'company.aboutUsText1': 'Somos una empresa con sede en Singapur fundada por veteranos de SAP Business One que ayudaron a dar forma al producto y su ecosistema, estamos en una misión para revivir SAP Business One para la próxima década incorporando capacidades de IA, aprovechando nuestra experiencia única en productos y alcance del ecosistema para superar a la competencia en el mercado de PYMES.',
+  'company.aboutUsText2': 'A largo plazo buscamos empoderar a los clientes y socios de PYMES globalmente para transformarse y tener éxito en la era de la IA.',
+  'company.visionTitle': 'Nuestra Visión',
+  'company.visionSubtitle': 'Éxito a prueba de futuro de SAP Business One en la era de la IA',
+  'company.dataCentersTitle': 'Centros de Datos',
+  'company.dataCentersText': 'Nuestros centros de datos están actualmente ubicados en Singapur y Alemania, y se extenderán a las Américas, permitiendo a nuestros clientes globales elegir su ubicación de infraestructura preferida',
+
 
   'resources.title': 'Soluciones Inteligentes de IA',
   'resources.subtitle': 'Explora nuestros recursos',
@@ -704,6 +739,11 @@ export const es: Record<string, string> = {
   'demo.submit': 'Ver Demo',
   'demo.error.required': 'es obligatorio',
   'demo.error.invalidEmail': 'Por favor, ingrese una dirección de correo válida',
+  'metrics.up': 'Hasta',
+  'metrics.seconds': 'Segundos',
+  'metrics.minute': 'Minuto',
+  'metrics.minutes': 'Minutos',
+  'footer.home': 'Inicio',
 };
 
 export default { en, pt, es };

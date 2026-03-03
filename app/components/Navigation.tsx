@@ -64,6 +64,14 @@ export default function Navigation({ currentPage, onDemoClick }: NavigationProps
 
                     {/* 中间 - 导航链接 */}
                     <div className="hidden lg:flex items-center justify-center space-x-8">
+                        {/* Home Link */}
+                        <Link
+                            href="/"
+                            className={`relative inline-block hover:before:animate-highlight-nav cursor-pointer px-2 ${currentPage === 'home' ? 'text-primary font-semibold' : 'text-black'}`}
+                        >
+                            {t('footer.home')}
+                        </Link>
+
                         {/* Products dropdown */}
                         <div
                             className="relative"

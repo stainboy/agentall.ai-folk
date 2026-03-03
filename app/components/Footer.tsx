@@ -50,6 +50,7 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold">{t('footer.companyTitle')}</h4>
                         <ul className="space-y-2 text-sm text-gray-300">
+                            <li><a href="https://agentall.ai/" target="_blank" rel="noopener noreferrer" className="relative inline-block hover:before:animate-highlight-footer cursor-pointer text-left">{t('footer.home')}</a></li>
                             <li><a href="/company" className="relative inline-block hover:before:animate-highlight-footer cursor-pointer text-left">{t('footer.aboutUs')}</a></li>
                             <li><button className="relative inline-block hover:before:animate-highlight-footer cursor-pointer text-left">{t('footer.ourMission')}</button></li>
                             <li><button className="relative inline-block hover:before:animate-highlight-footer cursor-pointer text-left">{t('footer.ourTeam')}</button></li>

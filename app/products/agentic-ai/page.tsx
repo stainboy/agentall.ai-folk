@@ -137,12 +137,12 @@ const getTabsData = (t: (key: string) => string) => [
             },
             {
                 label: t('agentic.autoDocResolution'),
-                value: ['1-2', 'Minute'],
+                value: ['1-2', t('metrics.minute')]
                 color: '#6b5be1'
             },
             {
                 label: t('agentic.efficiencyGain'),
-                value: ['10x', 'Up'],
+                value: ['10x', t('metrics.up')]
                 color: '#6b5be1'
             },
 
@@ -200,12 +200,12 @@ const getTabsData = (t: (key: string) => string) => [
             },
             {
                 label: t('agentic.generateReport'),
-                value: ['30', 'Seconds'],
+                value: ['30', t('metrics.seconds')]
                 color: '#6b5be1'
             },
             {
                 label: t('agentic.efficiencyGain'),
-                value: ['10x', 'Up'],
+                value: ['10x', t('metrics.up')]
                 color: '#6b5be1'
             },
 
@@ -230,12 +230,12 @@ const getTabsData = (t: (key: string) => string) => [
             },
             {
                 label: t('agentic.customerCreation'),
-                value: ['1-2', 'Minute'],
+                value: ['1-2', t('metrics.minute')]
                 color: '#6b5be1'
             },
             {
                 label: t('agentic.queryMobile'),
-                value: ['30', 'Seconds'],
+                value: ['30', t('metrics.seconds')]
                 color: '#6b5be1'
             },
 
