@@ -33,6 +33,10 @@ export const en: Record<string, string> = {
   'hero.subtitle': 'Purpose-built agentic AI for SAP Business One, empowering your enterprise with digital workers to maximize efficiency and optimize performance',
   'hero.cta': 'Get A Demo',
 
+  'video.title': 'See Agentall in Action',
+  'video.subtitle': 'Discover how our AI agents transform SAP Business One operations',
+  'video.cta': 'Start Your AI Journey',
+
   'carousel.hero1.title': 'Harness Power of AI for SAP Business One with Built-in Agentic Layer',
   'carousel.hero1.subtitle': 'Efficiency Improvement',
   'carousel.hero1.metric': '10X',
@@ -282,6 +286,10 @@ export const pt: Record<string, string> = {
   'hero.subtitle': 'IA agêntica criada especificamente para SAP Business One, capacitando sua empresa com trabalhadores digitais para maximizar a eficiência e otimizar o desempenho',
   'hero.cta': 'Ver Demo',
 
+  'video.title': 'Veja a Agentall em Ação',
+  'video.subtitle': 'Descubra como nossos agentes de IA transformam as operações do SAP Business One',
+  'video.cta': 'Comece Sua Jornada de IA',
+
   'carousel.hero1.title': 'Aproveite o Poder da IA para SAP Business One com Camada Agêntica Integrada',
   'carousel.hero1.subtitle': 'Melhoria de Eficiência',
   'carousel.hero1.metric': '10X',
@@ -530,6 +538,10 @@ export const es: Record<string, string> = {
   'hero.title': 'Garantiza el Éxito con SAP Business One en la Era de la IA',
   'hero.subtitle': 'IA agéntica integrada para SAP Business One, empoderando a tu empresa con trabajadores digitales para maximizar la eficiencia y optimizar el rendimiento',
   'hero.cta': 'Ver Demo',
+
+  'video.title': 'Ve a Agentall en Acción',
+  'video.subtitle': 'Descubre cómo nuestros agentes de IA transforman las operaciones de SAP Business One',
+  'video.cta': 'Comienza Tu Viaje con IA',
 
   'carousel.hero1.title': 'Aprovecha el Poder de la IA para SAP Business One con Capa Agéntica Integrada',
   'carousel.hero1.subtitle': 'Mejora de Eficiencia',

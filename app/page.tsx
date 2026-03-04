@@ -121,6 +121,60 @@ export default function Home() {
       {/* Gradient Divider */}
       <GradientDivider />
 
+      {/* Video Showcase Section */}
+      <section className="py-12 lg:py-20 bg-gradient-to-b from-white via-purple-50/30 to-white">
+        <div className="max-w-6xl mx-auto px-4 lg:px-8">
+          <div className="text-center space-y-6 lg:space-y-8 mb-8 lg:mb-12">
+            <div className="group cursor-pointer space-y-6">
+              <div className="flex justify-center">
+                <div className="w-3 h-3 bg-red-500 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+              </div>
+              <h2 className="section-title text-foreground">
+                {t('video.title')}
+              </h2>
+              <p className="text-base lg:text-lg text-foreground/70 max-w-2xl mx-auto">
+                {t('video.subtitle')}
+              </p>
+              <div className="flex justify-center">
+                <div className="w-20 h-px bg-red-500 group-hover:w-40 transition-all duration-500"></div>
+              </div>
+            </div>
+          </div>
+          
+          {/* YouTube Video Container */}
+          <div className="relative w-full max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/20 border-2 border-purple-100">
+              <iframe
+                src="https://www.youtube.com/embed/vN6lipwRd0g?rel=0&modestbranding=1&playsinline=1"
+                title="Agentall AI Platform Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 'none' }}
+              />
+            </div>
+            {/* Decorative Elements */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg opacity-50"></div>
+            <div className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-lg opacity-50"></div>
+            <div className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-primary rounded-bl-lg opacity-50"></div>
+            <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-lg opacity-50"></div>
+          </div>
+          
+          {/* Video CTA */}
+          <div className="text-center mt-8 lg:mt-12">
+            <button
+              onClick={() => setIsDemoFormOpen(true)}
+              className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 text-sm lg:px-8 lg:py-4 lg:text-base hover:bg-primary/90 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+              </svg>
+              <span>{t('video.cta')}</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Digital Workers Section */}
       <section className="py-12 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
