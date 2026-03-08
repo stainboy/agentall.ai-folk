@@ -65,12 +65,14 @@ export default function Navigation({ currentPage, onDemoClick }: NavigationProps
                     {/* 中间 - 导航链接 */}
                     <div className="hidden lg:flex items-center justify-center space-x-8">
                         {/* Home Link */}
-                        <Link
-                            href="/"
+                        <a
+                            href="https://agentall.ai/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={`relative inline-block hover:before:animate-highlight-nav cursor-pointer px-2 ${currentPage === 'home' ? 'text-primary font-semibold' : 'text-black'}`}
                         >
                             {t('footer.home')}
-                        </Link>
+                        </a>
 
                         {/* Products dropdown */}
                         <div
@@ -158,17 +160,20 @@ export default function Navigation({ currentPage, onDemoClick }: NavigationProps
             {showMobileMenu && (
                 <div className="fixed inset-0 bg-white z-[9998] lg:hidden pt-20">
                     <div className="flex flex-col items-center space-y-6 p-8">
-                        <Link href="/" className="text-xl text-black" onClick={() => setShowMobileMenu(false)}>
-                            Products
+                        <a href="https://agentall.ai/" target="_blank" rel="noopener noreferrer" className="text-xl text-black" onClick={() => setShowMobileMenu(false)}>
+                            {t('footer.home')}
+                        </a>
+                        <Link href="/products/agentic-ai" className="text-xl text-black" onClick={() => setShowMobileMenu(false)}>
+                            {t('nav.products')}
                         </Link>
-                        <Link href="/" className="text-xl text-black" onClick={() => setShowMobileMenu(false)}>
-                            Resources
+                        <Link href="/resources" className="text-xl text-black" onClick={() => setShowMobileMenu(false)}>
+                            {t('nav.resources')}
                         </Link>
                         <Link href="/company" className="text-xl text-black" onClick={() => setShowMobileMenu(false)}>
-                            Company
+                            {t('nav.company')}
                         </Link>
                         <Link href="/pricing" className="text-xl text-black" onClick={() => setShowMobileMenu(false)}>
-                            Pricing
+                            {t('nav.pricing')}
                         </Link>
                     </div>
                 </div>

@@ -32,6 +32,8 @@ const getPieChartData = (t: (key: string) => string) => [
     {
         id: 1,
         label: t('agentic.salesAutomation'),
+        line1: t('agentic.pieSalesLine1'),
+        line2: t('agentic.pieSalesLine2'),
         percentage: 14.29,
         color: '#6b5be1',
         icon: faReceipt,
@@ -44,6 +46,8 @@ const getPieChartData = (t: (key: string) => string) => [
     {
         id: 2,
         label: t('agentic.inventoryAutomation'),
+        line1: t('agentic.pieInventoryLine1'),
+        line2: t('agentic.pieInventoryLine2'),
         percentage: 14.29,
         color: '#ec4899',
         icon: faWarehouse,
@@ -57,6 +61,8 @@ const getPieChartData = (t: (key: string) => string) => [
     {
         id: 3,
         label: t('agentic.queryInsights'),
+        line1: t('agentic.pieQueryLine1'),
+        line2: t('agentic.pieQueryLine2'),
         percentage: 14.29,
         color: '#f97316',
         icon: faSearch,
@@ -70,6 +76,8 @@ const getPieChartData = (t: (key: string) => string) => [
     {
         id: 4,
         label: t('agentic.documentProcessing'),
+        line1: t('agentic.pieDocumentLine1'),
+        line2: t('agentic.pieDocumentLine2'),
         percentage: 14.29,
         color: '#8b5cf6',
         icon: faFileLines,
@@ -82,6 +90,8 @@ const getPieChartData = (t: (key: string) => string) => [
     {
         id: 5,
         label: t('agentic.knowledgeManagement'),
+        line1: t('agentic.pieKnowledgeLine1'),
+        line2: t('agentic.pieKnowledgeLine2'),
         percentage: 14.29,
         color: '#10b981',
         icon: faBrain,
@@ -93,6 +103,8 @@ const getPieChartData = (t: (key: string) => string) => [
     {
         id: 6,
         label: t('agentic.financeAutomation'),
+        line1: t('agentic.pieFinanceLine1'),
+        line2: t('agentic.pieFinanceLine2'),
         percentage: 14.29,
         color: '#06b6d4',
         icon: faFileInvoice,
@@ -106,6 +118,8 @@ const getPieChartData = (t: (key: string) => string) => [
     {
         id: 7,
         label: t('agentic.purchasingAutomation'),
+        line1: t('agentic.piePurchasingLine1'),
+        line2: t('agentic.piePurchasingLine2'),
         percentage: 14.29,
         color: '#f59e0b',
         icon: faHandshake,
@@ -348,8 +362,8 @@ function PieChart({ pieData, t }: { pieData: ReturnType<typeof getPieChartData>,
                                         }}
                                     />
                                     {/* Label text */}
-                                    {slice.label === 'Sales Automation' || slice.label === 'Query & Insights' || slice.label === 'Document Processing' || slice.label === 'Knowledge Management' || slice.label === 'Finance Automation' || slice.label === 'Purchasing Automation' || slice.label === 'Inventory Automation' || slice.label === 'Automação de Vendas' || slice.label === 'Consulta e Insights' || slice.label === 'Processamento de Documentos' || slice.label === 'Gestão do Conhecimento' || slice.label === 'Automação Financeira' || slice.label === 'Automação de Compras' || slice.label === 'Automação de Inventário' || slice.label === 'Automatización de Ventas' || slice.label === 'Consulta y Perspectivas' || slice.label === 'Procesamiento de Documentos' || slice.label === 'Gestión del Conocimiento' || slice.label === 'Automatización Financiera' || slice.label === 'Automatización de Compras' || slice.label === 'Automatización de Inventario' ? (
-                                        // Two-line text for specific labels
+                                    {slice.line1 && slice.line2 ? (
+                                        // Two-line text for labels with line1/line2
                                         <>
                                             <text
                                                 x={labelX}
@@ -367,14 +381,7 @@ function PieChart({ pieData, t }: { pieData: ReturnType<typeof getPieChartData>,
                                                     transition: 'all 0.3s ease'
                                                 }}
                                             >
-                                                {slice.label === 'Sales Automation' || slice.label === 'Automação de Vendas' || slice.label === 'Automatización de Ventas' ? 'Sales' :
-                                                    slice.label === 'Automação de Inventário' || slice.label === 'Automatización de Inventario' ? 'Inventory' :
-                                                        slice.label === 'Query & Insights' || slice.label === 'Consulta e Insights' || slice.label === 'Consulta y Perspectivas' ? 'Query &' :
-                                                            slice.label === 'Document Processing' || slice.label === 'Processamento de Documentos' || slice.label === 'Procesamiento de Documentos' ? 'Document' :
-                                                                slice.label === 'Knowledge Management' || slice.label === 'Gestão do Conhecimento' || slice.label === 'Gestión del Conocimiento' ? 'Knowledge' :
-                                                                    slice.label === 'Finance Automation' || slice.label === 'Automação Financeira' || slice.label === 'Automatización Financiera' ? 'Finance' :
-                                                                        slice.label === 'Purchasing Automation' || slice.label === 'Automação de Compras' || slice.label === 'Automatización de Compras' ? 'Purchasing' :
-                                                                            'Inventory'}
+                                                {slice.line1}
                                             </text>
                                             <text
                                                 x={labelX}
@@ -392,14 +399,7 @@ function PieChart({ pieData, t }: { pieData: ReturnType<typeof getPieChartData>,
                                                     transition: 'all 0.3s ease'
                                                 }}
                                             >
-                                                {slice.label === 'Sales Automation' || slice.label === 'Automação de Vendas' || slice.label === 'Automatización de Ventas' ? 'Automation' :
-                                                    slice.label === 'Inventory Automation' || slice.label === 'Automação de Inventário' || slice.label === 'Automatización de Inventario' ? 'Automation' :
-                                                        slice.label === 'Query & Insights' || slice.label === 'Consulta e Insights' || slice.label === 'Consulta y Perspectivas' ? 'Insights' :
-                                                            slice.label === 'Document Processing' || slice.label === 'Processamento de Documentos' || slice.label === 'Procesamiento de Documentos' ? 'Processing' :
-                                                                slice.label === 'Knowledge Management' || slice.label === 'Gestão do Conhecimento' || slice.label === 'Gestión del Conocimiento' ? 'Management' :
-                                                                    slice.label === 'Finance Automation' || slice.label === 'Automação Financeira' || slice.label === 'Automatización Financiera' ? 'Automation' :
-                                                                        slice.label === 'Purchasing Automation' || slice.label === 'Automação de Compras' || slice.label === 'Automatización de Compras' ? 'Automation' :
-                                                                            'Automation'}
+                                                {slice.line2}
                                             </text>
                                         </>
                                     ) : (
@@ -652,7 +652,7 @@ export default function AgenticAIProduct() {
                                                 controls
                                             >
                                                 <source src={getImagePath(activeTabData.video)} type="video/mp4" />
-                                                Your browser does not support video playback
+                                                {t('company.videoNotSupported')}
                                             </video>
                                         </div>
                                     )}
@@ -703,7 +703,7 @@ export default function AgenticAIProduct() {
                                                 controls
                                             >
                                                 <source src={getImagePath(activeTabData.video)} type="video/mp4" />
-                                                Your browser does not support video playback
+                                                {t('company.videoNotSupported')}
                                             </video>
                                         </div>
                                     )}

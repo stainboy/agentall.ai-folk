@@ -103,7 +103,7 @@ export default function Company() {
                     </div>
                     <div className="max-w-4xl mx-auto space-y-6 text-base lg:text-lg text-foreground/80 leading-relaxed">
                         <p>
-                            Empowering small and medium-sized businesses with digital workers, transforming enterprise operations into agentic organizations enabled by autonomous human-AI collaboration.
+                            {t('company.visionContent')}
                         </p>
                     </div>
                 </div>
