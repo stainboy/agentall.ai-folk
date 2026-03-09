@@ -44,4 +44,7 @@ export const IMAGES = {
 
   // Company video
   COMPANY_VIDEO: getImagePath("/videos/company.mp4"),
+
+  // Campaign
+  CAMPAIGN_VIDEO_PLACEHOLDER: getImagePath("/images/campaign/video-placeholder.jpg"),
 } as const;
