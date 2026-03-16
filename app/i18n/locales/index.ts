@@ -278,7 +278,7 @@ export const en: Record<string, string> = {
   'campaign.benefit2Desc': 'From AirPods 4 to iPhone 17 — we <strong>REWARD</strong> your success.',
   'campaign.benefit3Title': 'Unlock New Opportunities',
   'campaign.benefit3Desc': '<strong>Win</strong> SAP Business One deals <strong>FASTER</strong> and unlock upsell opportunities brought by AI across your entire install base',
-  'campaign.period': 'Campaign Period: Feb 16 – Mar 31',
+  'campaign.period': 'Campaign Period: Feb 16 – Apr 30',
   'campaign.trailblazerTitle': 'Trailblazer Partners',
   'campaign.trailblazerUnlock': 'Close at least <strong>one deal</strong> to unlock:',
   'campaign.trailblazerBenefit1': 'FREE Agentic AI for SAP Business One implementation for your first customer (standard scenarios)',
