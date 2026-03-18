@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import DemoForm from '../components/DemoForm';
-import { IMAGES } from '../utils/images';
 import { useI18n } from '../i18n/I18nContext';
 
 export default function Company() {
@@ -15,11 +14,10 @@ export default function Company() {
         <div className="min-h-screen">
             <Navigation currentPage="company" onDemoClick={() => setIsDemoFormOpen(true)} />
 
-            {/* Company Video Section */}
-            <section className="min-h-screen flex items-center justify-center py-24 lg:py-32 relative">
-                <div className="max-w-7xl mx-auto px-4 lg:px-8 w-full">
-                    {/* Title Section */}
-                    <div className="text-center space-y-6 lg:space-y-9 mb-12 lg:mb-16">
+            {/* Page Title Section */}
+            <section className="pt-24 lg:pt-32 pb-12 lg:pb-16">
+                <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    <div className="text-center space-y-6 lg:space-y-9">
                         <div className="group cursor-pointer space-y-9">
                             <div className="flex justify-center">
                                 <div className="w-3 h-3 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300"></div>
@@ -33,23 +31,6 @@ export default function Company() {
                             <div className="flex justify-center">
                                 <div className="w-30 h-px bg-primary group-hover:w-60 transition-all duration-500"></div>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Video Player */}
-                    <div className="flex justify-center items-center">
-                        <div className="w-full max-w-6xl">
-                            <video
-                                src={IMAGES.COMPANY_VIDEO}
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                controls
-                                className="w-full card-shadow transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
-                            >
-                                {t('company.videoNotSupported')}
-                            </video>
                         </div>
                     </div>
                 </div>
