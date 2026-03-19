@@ -141,16 +141,15 @@ export default function Home() {
             </div>
           </div>
           
-          {/* YouTube Video Container */}
+          {/* Video Container */}
           <div className="relative w-full max-w-4xl mx-auto">
             <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/20 border-2 border-purple-100">
-              <iframe
-                src="https://www.youtube.com/embed/vN6lipwRd0g?rel=0&modestbranding=1&playsinline=1"
+              <video
+                src="/videos/agentall-demo.mp4"
                 title="Agentall AI Platform Demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-                style={{ border: 'none' }}
+                controls
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             {/* Decorative Elements */}
